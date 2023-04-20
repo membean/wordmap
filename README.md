@@ -93,7 +93,7 @@ function App() {
 
 Props and argument that you can pass to word maps.
 
-- `containerEl` : `DomElement`- a reference to the wordmap-container div from the Constellation component
+- `containerEl` : `HTMLElement`- a reference to the wordmap-container div from the Constellation component
 - `wf` : `string`  - the wordform or Word for the current constellation
 - `mode` : `'q'`  - used to determine the constellaton mode, defaults to 'word' which is used for WordPage, you can pass 'q' for questions.
 - `animate` : `true | false`  - Used to turn animation on/off. Default is on 
