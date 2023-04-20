@@ -1,3 +1,9 @@
+#
+
+<p align="center"> 
+  <img src="./wordmap.png" width="30%" title="Wordmap Demo" alt="Wordmap Demo">
+<p>
+
 # Wordmap
 
 A Wordmap is a visual organizer that promotes vocabulary development, it's shared module used on Membean and Memseed.
