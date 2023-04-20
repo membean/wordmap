@@ -105,4 +105,4 @@ Props and argument that you can pass to word maps.
 
 ## Examples
 
-Please refer [examples] (./examples)
+Please refer [examples](./examples)
