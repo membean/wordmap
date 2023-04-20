@@ -9068,6 +9068,10 @@ word-wrap@^1.2.3, word-wrap@~1.2.3:
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
 
+"wordmap@git+https://github.com/membean/wordmap.git":
+  version "1.0.0"
+  resolved "git+https://github.com/membean/wordmap.git#067304906a4cd2aa2586cd1ae10fe1b48538b144"
+
 workbox-background-sync@6.5.4:
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/workbox-background-sync/-/workbox-background-sync-6.5.4.tgz#3141afba3cc8aa2ae14c24d0f6811374ba8ff6a9"

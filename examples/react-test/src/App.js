@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import React, { useEffect, useRef } from 'react'
 import './App.css';
 
+import WordMap from 'wordmap';
+import { constellationData } from './data'
+
 function App() {
+  const containerRef = useRef();
+
+  useEffect(() => {
+    new WordMap(
+      containerRef.current,
+      "coalition",
+      null,
+      null,
+      constellationData,
+      () => {},
+      {}
+    )
+
+    return () => {
+      containerRef.current.removeChild(containerRef.current.children[ 0 ])
+    }
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Wordmap
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <section>
+        <div className="wordmap-container" ref={containerRef}></div>
+      </section>
     </div>
   );
 }

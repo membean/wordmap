@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+section {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.wordmap-container {
+  margin: auto;
+  height: 500px;
+  width: 500px;
 }
