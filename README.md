@@ -101,3 +101,8 @@ Props and argument that you can pass to word maps.
 - `fetchConstellationData` : `Callback to fetch the data`  - The method for fetching constellation data used in the Constellation component. Used as a CB in the classes
 - `props`  - The Constellation component props
   - `fullscreen` : `true | false` - to make the constellation as fullscreen
+
+
+## Examples
+
+Please refer [examples] (./examples)
