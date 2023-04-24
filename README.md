@@ -26,9 +26,9 @@ npm install wordmap@git+https://github.com/membean/wordmap.git
 
 # Prerequesites
 
-Before using the Wordmap, make sure that you have globally installed create.js to enable the module's functionality. 
+In order to use the Wordmap module, it's necessary to have `create.js` installed globally in your application.
 
-Additionally, add below script to your index.html.
+You can install `create.js` by adding script provided below to your `index.html`.
 
 ```
 
