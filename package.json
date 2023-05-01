@@ -1,5 +1,5 @@
 {
-  "name": "constellation",
+  "name": "wordmap",
   "version": "1.0.0",
   "description": "shared constellation module used on Membean and Memseed",
   "main": "src/index.js",

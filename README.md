@@ -32,7 +32,7 @@ You can install `create.js` by adding script provided below to your `index.html`
 
 ```
 
-<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="https://cdn0.membean.com/public/vendor/javascripts/createjs-2015.11.26.min.js"></script>
 
 ```
 
@@ -46,7 +46,7 @@ Import createJs in public html
 ./public/index.html
 
 <head>
-  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="https://cdn0.membean.com/public/vendor/javascripts/createjs-2015.11.26.min.js"></script>
 <head>
 
 ```
