@@ -15,13 +15,12 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 0px 20px;
   color: white;
+  margin-bottom: 10px;
 }
 
 .App-link {
@@ -49,4 +48,13 @@ section {
   margin: auto;
   height: 500px;
   width: 500px;
+}
+
+button {
+  background: #61dafb;
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin: 0px 10px;
+  box-shadow: none;
+  border: 1px solid #61dafb;
 }

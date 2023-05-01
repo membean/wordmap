@@ -1,38 +1,30 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import './App.css';
 
-import WordMap from 'wordmap';
-import { constellationData } from './data'
+import { WordConstellation } from './word';
+import { QuestionConstellation } from './question';
 
 function App() {
-  const containerRef = useRef();
-
-  useEffect(() => {
-    new WordMap(
-      containerRef.current,
-      "coalition",
-      null,
-      null,
-      constellationData,
-      () => {},
-      {}
-    )
-
-    return () => {
-      containerRef.current.removeChild(containerRef.current.children[ 0 ])
-    }
-  }, [])
+  const [ isQuestion, setIsQuestion ] = useState(true);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Wordmap
-        </p>
+        <h2>Wordmap</h2>
+        <div>
+          <button onClick={() => setIsQuestion(!isQuestion)}>Word Constellation</button>
+          <button onClick={() => setIsQuestion(!isQuestion)}>Question Constellation</button>
+        </div>
       </header>
-      <section>
-        <div className="wordmap-container" ref={containerRef}></div>
-      </section>
+      <div>
+        <div>
+          <section>
+            {isQuestion ?
+              <WordConstellation /> : <QuestionConstellation />
+            }
+          </section>
+        </div>
+      </div>
     </div>
   );
 }
