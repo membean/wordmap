@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "shared constellation module used on Membean and Memseed",
   "main": "src/index.js",
+  "types": "./src/index.d.ts",
   "repository": "git@github.com:membean/wordmap.git",
   "author": "sahil <sahil.kashetwar@membean.com>",
   "license": "MIT",
