@@ -15,9 +15,9 @@ export const QuestionConstellation = () => {
   useEffect(() => {
     new WordMap(
       containerRef.current,
-      "coalition",
       "q",
       null,
+      'https://mbcdn.membean.com/data/cons/json-named/immaculate.json',
       constellationData,
       () => {},
       {}

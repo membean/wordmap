@@ -14,11 +14,11 @@ export const WordConstellation = () => {
   useEffect(() => {
     new WordMap(
       containerRef.current,
-      "coalition",
       null,
       null,
-      constellationData,
-      () => {},
+      'https://mbcdn.membean.com/data/cons/json-named/plethora.json',
+      null,
+      null,
       {}
     )
 

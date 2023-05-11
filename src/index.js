@@ -1,4 +1,5 @@
 import Graph from './graph';
+import Request from './request';
 /*global createjs:true*/
 
 export default class Wordmap {
@@ -7,42 +8,34 @@ export default class Wordmap {
    * Constellation component and is responsible for drawing the graph for words and updating the graph to new words.
    *
    * @param {Object} containerEl - a reference to the wordmap-container div from the Constellation component
-   * @param {String} wf - the wordform or Word for the current constellation
    * @param {String} mode - used to determine the constellaton mode, defaults to 'word' which is used for WordPage
-   * @param {Boolean} animate - Used to turn animation on/off. Default is on
-   * @param {Object} data - The JSON for the active word constellation
-   * @param {Function} fetchConstellationData - The method for fetching constellation data used in the Constellation component. Used as a CB in the classes
+   * @param {Boolean} animate - Used to turn animation on/off. Default is on 
+   * @param {String} url - used to fetch the constellation data.
+   * @param {Object} data - The JSON for the active word constellation, getting used when url is not available
+   * @param {Function} fetchConstellationData - The method for fetching constellation data used in the Constellation component. Used as a CB in the classes, getting used when url is not available
    * @param {Object} props - The Constellation component props
    */
+
   constructor(
     containerEl,
-    wf,
     mode,
     animate,
+    url,
     data,
     fetchConstellationData,
     props
   ) {
     this.mode = mode != null ? mode : 'word';
-    this.fetchConstellationData = fetchConstellationData;
     this.animate = animate != null ? animate : true;
     this.containerEl = containerEl;
-    this.constellationJson = data;
-
     // keep a reference to the Constellation component props
     this.props = props;
-
-    this._buildStage();
-    this.currentGraph = new Graph(
-      wf,
-      this.stage,
-      this.mode,
-      this.animate,
-      this.fetchConstellationData,
-      this
-    );
-    // the draw call is what actually puts everything in place and displays the Constellation for the given word
-    this.currentGraph.draw(data);
+    
+    this._loadData(
+      url,
+      data,
+      fetchConstellationData
+    )
   }
 
   /**
@@ -121,5 +114,31 @@ export default class Wordmap {
     this.canvas.height *= ratio;
     this.stage.scaleX = ratio;
     return (this.stage.scaleY = ratio);
+  }
+
+  _buildGraph() {
+    this._buildStage();
+    this.currentGraph = new Graph(
+      this.constellationJson.i,
+      this.stage,
+      this.mode,
+      this.animate,
+      this.fetchConstellationData,
+      this
+    );
+    // the draw call is what actually puts everything in place and displays the Constellation for the given word
+    this.currentGraph.draw(this.constellationJson);
+  }
+
+  async _loadData(url, data, fetchConstellationData) {
+    if (!url) {
+      this.fetchConstellationData = fetchConstellationData;
+      this.constellationJson = data;
+    } else {
+      this.request = new Request();
+      this.constellationJson = await this.request.fetchConstellationData(url);
+    }
+    
+    this._buildGraph()
   }
 }

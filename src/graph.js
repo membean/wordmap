@@ -16,12 +16,12 @@ export default class Graph {
    * @param {Function} fetchConstellationData - The method for fetching constellation data used in the Constellation component. Used as a CB in the classes
    * @param {Object} wordmap - The instance of the Wordmap class that instantiates this graph
    */
-  constructor(wf, stage, mode, animate, fetchConstellationData, wordmap) {
+  constructor(wordForm, stage, mode, animate, fetchConstellationData, wordmap) {
     this.ANIMATION_DURATION = 750;
     this.CHANGE_GRAPH_ANIMATION_DURATION = this.ANIMATION_DURATION * 1.5;
     this.CURRENT = null;
 
-    this.wf = wf;
+    this.wordForm = wordForm;
     this.stage = stage;
     this.mode = mode != null ? mode : 'word';
     this.animate = animate != null ? animate : true;
@@ -50,7 +50,7 @@ export default class Graph {
       this.stage.width / 2,
       this.stage.height / 2
     );
-    this.rootNode = new RootNode(this.wf, this, this.mode);
+    this.rootNode = new RootNode(this.wordForm, this, this.mode);
     this.rootNode.updatePosition(this.centerPoint.x, this.centerPoint.y);
   }
 
