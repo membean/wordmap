@@ -28,7 +28,7 @@ export default class Graph {
     this.nodes = [];
     this.links = [];
     this.wordmap = wordmap;
-    this.fetchConstellationData = fetchConstellationData;
+    this.fetchCallback = fetchConstellationData;
     this.addToStage();
     this._buildRootNode();
   }
@@ -99,7 +99,7 @@ export default class Graph {
           id,
           this,
           this.mode,
-          this.fetchConstellationData,
+          this.fetchCallback,
           this.wordmap,
           type
         );
