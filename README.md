@@ -93,14 +93,21 @@ function App() {
 
 Props and argument that you can pass to word maps.
 
-- `containerEl` : `HTMLElement`- a reference to the wordmap-container div from the Constellation component
-- `wf` : `string`  - the wordform or Word for the current constellation
-- `mode` : `'q'`  - used to determine the constellaton mode, defaults to 'word' which is used for WordPage, you can pass 'q' for questions.
-- `animate` : `true | false`  - Used to turn animation on/off. Default is on 
-- `data` : `Object`  - The JSON for the active word constellation
-- `fetchConstellationData` : `Callback to fetch the data`  - The method for fetching constellation data used in the Constellation component. Used as a CB in the classes
-- `props`  - The Constellation component props
-  - `fullscreen` : `true | false` - to make the constellation as fullscreen
+ - @param {Object} containerEl [Required] - a reference to the wordmap-container div from the Constellation component
+ - @param {String} mode [Optional] - used to determine the constellaton mode
+ -    Default value is 'word'
+ - @param {Boolean} animate [Optional] - Used to turn animation on/off. Default is on
+ -    Default value is true
+ - @param {String} url - used to fetch the constellation data.
+    [Required] - In case when constellation need to use in readonly mode label click will be disabled eg. question  page.
+ -    [Optional] - In case when constellation need to be interactive eg word mode
+ - @param {Object} data - The JSON for the active word constellation
+ -    [Required] - In case of Interactive mode of constellation like forward backword mode.
+ @param {Function} fetchCallback - The callback method to fetch data for constellation, callback trigger when click - on label.  which accepts 2 args like word & callback with data to renrender graph.
+ -    [Required] - In case of Interactive mode of constellation like forward backword mode.
+ - @param {Object} props [Optional] - The Constellation component props
+    Default value is {} 
+    eg. `fullscreen` : `true | false` - to make the constellation as fullscreen
 
 
 ## Examples
