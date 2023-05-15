@@ -1,19 +1,21 @@
 
 
 export default class Request {
-  constructor(url) {
+  constructor({
+    url
+  }) {
     this.url = url
   }
 
   /**
-   * Fetchs the constellation data.
+   * @fetchConstellationData 
+   *   Fetch Constellation data based on the provided url.
    * 
   */
-  async fetchConstellationData(url) {
-    return await fetch(url)
+  async fetchConstellationData() {
+    return await fetch(this.url)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         return data;
       })
   }

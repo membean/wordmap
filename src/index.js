@@ -7,35 +7,42 @@ export default class Wordmap {
    * Creates a Wordmap. The highest class in the hierarchy for Constellations. This instance is created once in the
    * Constellation component and is responsible for drawing the graph for words and updating the graph to new words.
    *
-   * @param {Object} containerEl - a reference to the wordmap-container div from the Constellation component
-   * @param {String} mode - used to determine the constellaton mode, defaults to 'word' which is used for WordPage
-   * @param {Boolean} animate - Used to turn animation on/off. Default is on 
+   * @param {Object} containerEl [Required] - a reference to the wordmap-container div from the Constellation component
+   * @param {String} mode [Optional] - used to determine the constellaton mode
+   *    Default value is 'word'
+   * @param {Boolean} animate [Optional] - Used to turn animation on/off. Default is on
+   *    Default value is true
    * @param {String} url - used to fetch the constellation data.
-   * @param {Object} data - The JSON for the active word constellation, getting used when url is not available
-   * @param {Function} fetchConstellationData - The method for fetching constellation data used in the Constellation component. Used as a CB in the classes, getting used when url is not available
-   * @param {Object} props - The Constellation component props
+   *    [Required] - In case when constellation need to use in readonly mode label click will be disabled eg. question page.
+   *    [Optional] - In case when constellation need to be interactive eg word mode
+   * @param {Object} data - The JSON for the active word constellation
+   *    [Required] - In case of Interactive mode of constellation like forward backword mode.
+   * @param {Function} fetchCallback - The callback method to fetch data for constellation, callback trigger when click on label.  which accepts 2 args like word & callback with data to renrender graph.
+   *    [Required] - In case of Interactive mode of constellation like forward backword mode.
+   * @param {Object} props [Optional] - The Constellation component props
+   *    Default value is {}
    */
 
-  constructor(
+  constructor({
     containerEl,
-    mode,
-    animate,
+    mode = 'word', // default's to 'word'
+    animate = true, // default's to true
     url,
     data,
-    fetchConstellationData,
-    props
-  ) {
-    this.mode = mode != null ? mode : 'word';
-    this.animate = animate != null ? animate : true;
+    fetchCallback,
+    props = {} // default's to {}
+  }) {
     this.containerEl = containerEl;
+    this.mode = mode;
+    this.animate = animate;
     // keep a reference to the Constellation component props
     this.props = props;
-    
-    this._loadData(
+
+    this._loadData({
       url,
       data,
-      fetchConstellationData
-    )
+      fetchCallback
+    })
   }
 
   /**
@@ -77,7 +84,7 @@ export default class Wordmap {
       this.stage,
       null,
       null,
-      this.fetchConstellationData,
+      this.fetchCallback,
       this
     );
     this.currentGraph.draw(this.constellationJson);
@@ -123,22 +130,26 @@ export default class Wordmap {
       this.stage,
       this.mode,
       this.animate,
-      this.fetchConstellationData,
+      this.fetchCallback,
       this
     );
     // the draw call is what actually puts everything in place and displays the Constellation for the given word
     this.currentGraph.draw(this.constellationJson);
   }
 
-  async _loadData(url, data, fetchConstellationData) {
+  /**
+   * Loads data to for constellation to render on canvas.
+  */
+
+  async _loadData({ url, data, fetchCallback }) {
     if (!url) {
-      this.fetchConstellationData = fetchConstellationData;
+      this.fetchCallback = fetchCallback;
       this.constellationJson = data;
     } else {
-      this.request = new Request();
-      this.constellationJson = await this.request.fetchConstellationData(url);
+      this.request = new Request({ url });
+      this.constellationJson = await this.request.fetchConstellationData();
     }
-    
+
     this._buildGraph()
   }
 }

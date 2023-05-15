@@ -20,7 +20,7 @@ export default class LabelNode extends Node {
     this.graph = graph;
     this.id = id;
     this.wordmap = wordmap;
-    this.fetchConstellationData = fetchConstellationData;
+    this.fetchCallback = fetchConstellationData;
     this.jitter = 0;
     this._buildLabelNode();
     this._setupHandler();
@@ -197,6 +197,6 @@ export default class LabelNode extends Node {
   // JSON and trigger a new word
   _handleClick() {
     const constellationCallback = res => this.wordmap.showNode(this, res);
-    this.fetchConstellationData(this.id, constellationCallback);
+    this.fetchCallback(this.id, constellationCallback);
   }
 }
