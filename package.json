@@ -8,7 +8,11 @@
   "author": "sahil <sahil.kashetwar@membean.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "bundle": "browserify ./src/index.js -p esmify > ./bundle/bundle.js"
+  },
   "dependencies": {
-    "browserify": "^17.0.0"
+    "browserify": "^17.0.0",
+    "esmify": "^2.1.1"
   }
 }

@@ -5,8 +5,12 @@
   "main": "index.js",
   "author": "sahil",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.18.2",
-    "wordmap": "https://github.com/membean/wordmap.git#v0.0.4"
+    "nodemon": "^2.0.22",
+    "wordmap": "file:../../../wordmap"
   }
 }

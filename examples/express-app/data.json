@@ -1,0 +1,69 @@
+{
+  "i": "avarice",
+  "children": [
+    {
+      "t": "ss",
+      "p": "n",
+      "d": "reprehensible acquisitiveness",
+      "i": "758525%n",
+      "children": [
+        {
+          "i": "greed"
+        },
+        {
+          "i": "covetousness"
+        },
+        {
+          "i": "rapacity"
+        },
+        {
+          "i": "avaritia"
+        },
+        {
+          "t": "ss",
+          "p": "n",
+          "d": "an unpardonable sin entailing a total loss of grace",
+          "l": 0,
+          "i": "757730%n",
+          "children": [
+            {
+              "i": "mortal sin"
+            },
+            {
+              "i": "deadly sin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "t": "ss",
+      "p": "n",
+      "d": "extreme greed for material wealth",
+      "i": "4945758%n",
+      "children": [
+        {
+          "i": "avariciousness"
+        },
+        {
+          "i": "covetousness"
+        },
+        {
+          "i": "cupidity"
+        },
+        {
+          "t": "ss",
+          "p": "n",
+          "d": "excessive desire to acquire or possess more (especially more material wealth) than one needs or deserves",
+          "l": 0,
+          "i": "4945530%n",
+          "children": [
+            {
+              "i": "greed"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
