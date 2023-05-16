@@ -1,0 +1,12 @@
+{
+  "name": "express-app",
+  "version": "1.0.0",
+  "description": "to represent the use of wordmap",
+  "main": "index.js",
+  "author": "sahil",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "wordmap": "https://github.com/membean/wordmap.git#v0.0.4"
+  }
+}

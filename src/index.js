@@ -154,3 +154,10 @@ export default class Wordmap {
     this._buildGraph()
   }
 }
+
+
+(() => {
+  if (typeof window !== 'undefined') {
+    window.wordmap = Wordmap;
+  }
+})()

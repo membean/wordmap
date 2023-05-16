@@ -7,5 +7,8 @@
   "repository": "git@github.com:membean/wordmap.git",
   "author": "sahil <sahil.kashetwar@membean.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "browserify": "^17.0.0"
+  }
 }
