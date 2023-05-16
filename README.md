@@ -89,6 +89,17 @@ function App() {
 
 ```
 
+## Styles.
+
+To render the constellation graph correctly make sure container element have equal width & height like square.
+```
+.container {
+  display: block;
+  width: 350px;
+  height: 350px;
+}
+```
+
 ## Props & Methods
 
 Props and argument that you can pass to word maps.
