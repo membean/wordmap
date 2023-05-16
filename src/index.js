@@ -158,6 +158,6 @@ export default class Wordmap {
 
 (() => {
   if (typeof window !== 'undefined') {
-    window.wordmap = Wordmap;
+    window.Wordmap = Wordmap;
   }
 })()
