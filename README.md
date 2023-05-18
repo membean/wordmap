@@ -79,7 +79,7 @@ import Wordmap from 'wordmap';
     new WordMap(
       {
         containerEle: containerRef.current,
-        url: `url-to-constellation-json-data`
+        url: 'url-to-constellation-json-data'
       }
     )
 
@@ -190,7 +190,7 @@ means click on label will be disable.
 new Wordmap({
   containerEle: ele,
   mode: 'word',
-  url: 'url-to-constellation-json'
+  url: 'url-to-constellation-json-data'
 })
 
 ```
@@ -203,7 +203,7 @@ new Wordmap({
 new Wordmap({
   containerEle: ele,
   mode: 'question',
-  url: 'url-to-constellation-json'
+  url: 'url-to-constellation-json-data'
 })
 
 ```

@@ -13,7 +13,7 @@ export const WordConstellation = () => {
   useEffect(() => {
     new WordMap({
       containerEl: containerRef.current,
-      url: 'https://mbcdn.membean.com/data/cons/json-named/plethora.json'
+      url: 'url-to-constellation-json-data'
     })
 
     return () => {
