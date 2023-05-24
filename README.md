@@ -98,6 +98,8 @@ import Wordmap from 'wordmap';
 .container {
   width: 350px;
   height: 350px;
+  background: #2a383d;
+  padding: 20px;
 }
 ```
 
