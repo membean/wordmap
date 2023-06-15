@@ -12,14 +12,14 @@ function App() {
       <header className="App-header">
         <h2>Wordmap</h2>
         <div>
-          <button onClick={() => setIsQuestion(!isQuestion)}>Word Constellation</button>
-          <button onClick={() => setIsQuestion(!isQuestion)}>Question Constellation</button>
+          <button onClick={() => setIsQuestion(false)}>Word Constellation</button>
+          <button onClick={() => setIsQuestion(true)}>Question Constellation</button>
         </div>
       </header>
       <div>
         <div>
           <section>
-            {isQuestion ?
+            {!isQuestion ?
               <WordConstellation /> : <QuestionConstellation />
             }
           </section>
