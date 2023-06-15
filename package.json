@@ -9,7 +9,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "bundle": "browserify ./src/index.js -p esmify > ./bundle/bundle.js"
+    "bundle": "browserify ./src/index.js -p esmify > ./bundle/bundle.js",
+    "types": "tsc --project tsconfig.json"
   },
   "dependencies": {
     "browserify": "^17.0.0",

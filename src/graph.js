@@ -92,7 +92,8 @@ export default class Graph {
           this,
           this.stage,
           type,
-          jsonNode.l
+          jsonNode.l,
+          this.mode
         );
       } else {
         node = new LabelNode(
@@ -109,8 +110,8 @@ export default class Graph {
       // can create the link in red
       link =
         jsonNode.l === 1
-          ? new Link(parentNode, node, true, this.stage)
-          : new Link(parentNode, node, false, this.stage);
+          ? new Link(parentNode, node, true, this.stage, this.mode)
+          : new Link(parentNode, node, false, this.stage, this.mode);
       this.nodes.push(node);
       this.links.push(link);
       if (jsonNode.children) {

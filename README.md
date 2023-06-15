@@ -1,4 +1,4 @@
-d#
+#
 
 <p align="center"> 
   <img src="./wordmap.png" width="30%" title="Wordmap Demo" alt="Wordmap Demo">
@@ -11,12 +11,12 @@ The Wordmap is a tool that enhances vocabulary learning through visual organizat
 # Install the package using yarn.
  
 ```
-yarn add 'wordmap@https://github.com/membean/wordmap.git#v0.0.6'
+yarn add 'wordmap@https://github.com/membean/wordmap.git#v0.0.7'
  ```
 # Install the package using npm
 
 ```
-npm install 'wordmap@https://github.com/membean/wordmap.git#v0.0.6'
+npm install 'wordmap@https://github.com/membean/wordmap.git#v0.0.7'
 ```
 
 >  Note: you must have access to Wordmap repository in order to install it as node package / module.
