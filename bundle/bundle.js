@@ -89,14 +89,14 @@ class Graph {
       pos = jsonNode.p;
       defn = jsonNode.d;
       if (type === 'ss') {
-        node = new _synsetnode.default(id, defn, pos, this, this.stage, type, jsonNode.l);
+        node = new _synsetnode.default(id, defn, pos, this, this.stage, type, jsonNode.l, this.mode);
       } else {
         node = new _labelnode.default(id, this, this.mode, this.fetchCallback, this.wordmap, type);
       }
 
       // if jsonNode.l === 1 then the word is an antonym and we pass true to the link constructor so that the Link class
       // can create the link in red
-      link = jsonNode.l === 1 ? new _link.default(parentNode, node, true, this.stage) : new _link.default(parentNode, node, false, this.stage);
+      link = jsonNode.l === 1 ? new _link.default(parentNode, node, true, this.stage, this.mode) : new _link.default(parentNode, node, false, this.stage, this.mode);
       this.nodes.push(node);
       this.links.push(link);
       if (jsonNode.children) {
@@ -705,12 +705,14 @@ class Link extends createjs.Container {
    * @param {Object} n2 - The Node to be linked TO
    * @param {Boolean} isAntonym - is the Link for an Antonym (These links are a different color from the others)
    * @param {Object} stage - A reference to the Stage object that Nodes are drawn to
+   * @param {String} mode - used to determine the constellaton mode, defaults to 'word' which is used for WordPage
    */
-  constructor(n1, n2, isAntonym, stage) {
+  constructor(n1, n2, isAntonym, stage, mode) {
     super();
     this.n1 = n1;
     this.n2 = n2;
     this._stage = stage;
+    this.mode = mode;
     this.hoverable = n1.type === 'ss' && n2.type === 'ss';
     this.isAntonym = isAntonym;
     this.initialize();
@@ -773,12 +775,15 @@ class Link extends createjs.Container {
   // Sets up the rollover/rollout event handlers by binding them to the current links scope so that 'this' references
   // the current Link object in the event handlers
   _setupHandler() {
-    this.line.cursor = 'hand';
-    // necessary so the event handlers have access to the class context
-    this._handleRollout = this._handleRollout.bind(this);
-    this._handleRollover = this._handleRollover.bind(this);
-    this.line.addEventListener('rollover', this._handleRollover);
-    this.line.addEventListener('rollout', this._handleRollout);
+    // incase of word mode only handler will be applicable.
+    if (this.mode === 'word') {
+      this.line.cursor = 'hand';
+      // necessary so the event handlers have access to the class context
+      this._handleRollout = this._handleRollout.bind(this);
+      this._handleRollover = this._handleRollover.bind(this);
+      this.line.addEventListener('rollover', this._handleRollover);
+      this.line.addEventListener('rollout', this._handleRollout);
+    }
   }
   _handleRollover() {
     this.line.graphics.clear();
@@ -1027,8 +1032,9 @@ class SynsetNode extends _node.default {
    * @param {Object} graph - the Graph instance that the RootNode is being added to
    * @param {Object} stage - A reference to the Stage object that Nodes are drawn on
    * @param {String} type - either 'label' or 'ss' (synset) to signify what type of node this is
+   * @param {String} mode - used to determine the constellaton mode, defaults to 'word' which is used for WordPage
    */
-  constructor(id, defn, partOfSpeech, graph, stage, type, l) {
+  constructor(id, defn, partOfSpeech, graph, stage, type, l, mode) {
     super(id, type, graph);
     this.l = l;
     this.defn = defn;
@@ -1036,6 +1042,7 @@ class SynsetNode extends _node.default {
     this.bubbleRadius = 5;
     this.color = this._color();
     this.graph = graph;
+    this.mode = mode;
     this._stage = stage;
     this._buildBubble();
     this._setupHandlers();
@@ -1066,13 +1073,14 @@ class SynsetNode extends _node.default {
   // Sets up the Node event handlers by binding them to the current SynsetNode scope. We do this so that 'this' references
   // the target SynsetNode during events
   _setupHandlers() {
-    this.b.cursor = 'pointer';
-
-    // necessary so the event handlers have access to the class context
-    this._handleRollout = this._handleRollout.bind(this);
-    this._handleRollover = this._handleRollover.bind(this);
-    this.b.addEventListener('rollover', this._handleRollover);
-    return this.b.addEventListener('rollout', this._handleRollout);
+    if (this.mode === 'word') {
+      this.b.cursor = 'pointer';
+      // necessary so the event handlers have access to the class context
+      this._handleRollout = this._handleRollout.bind(this);
+      this._handleRollover = this._handleRollover.bind(this);
+      this.b.addEventListener('rollover', this._handleRollover);
+      return this.b.addEventListener('rollout', this._handleRollout);
+    }
   }
 
   /**

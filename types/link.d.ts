@@ -6,11 +6,13 @@ export default class Link {
      * @param {Object} n2 - The Node to be linked TO
      * @param {Boolean} isAntonym - is the Link for an Antonym (These links are a different color from the others)
      * @param {Object} stage - A reference to the Stage object that Nodes are drawn to
+     * @param {String} mode - used to determine the constellaton mode, defaults to 'word' which is used for WordPage
      */
-    constructor(n1: any, n2: any, isAntonym: boolean, stage: any);
+    constructor(n1: any, n2: any, isAntonym: boolean, stage: any, mode: string);
     n1: any;
     n2: any;
     _stage: any;
+    mode: string;
     hoverable: boolean;
     isAntonym: boolean;
     line: any;

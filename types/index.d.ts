@@ -15,6 +15,7 @@ export default class Wordmap {
      *    [Required] - In case of Interactive mode of constellation like forward backword mode.
      * @param {Function} fetchCallback - The callback method to fetch data for constellation, callback trigger when click on label.  which accepts 2 args like word & callback with data to renrender graph.
      *    [Required] - In case of Interactive mode of constellation like forward backword mode.
+     *    Default will be empty function.
      * @param {Object} props [Optional] - The Constellation component props
      *    Default value is {}
      */
