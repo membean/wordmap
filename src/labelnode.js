@@ -1,5 +1,5 @@
 import Node from './node';
-/*global createjs:true*/
+import createjs from 'createjs-module';
 
 export default class LabelNode extends Node {
   /**

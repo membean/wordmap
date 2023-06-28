@@ -6,6 +6,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import { snippet } from './code';
+import { WORD_URL } from '../constant';
 
 
 export const QuestionConstellation = () => {
@@ -14,7 +15,7 @@ export const QuestionConstellation = () => {
   useEffect(() => {
     new WordMap({
       containerEl: containerRef.current,
-      url: `url-to-constellation-json-data`,
+      url: WORD_URL,
       mode: "question"
     })
 

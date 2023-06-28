@@ -1,4 +1,4 @@
-/*global createjs:true*/
+import createjs from 'createjs-module';
 import tooltip from './tooltip';
 
 const TOOLTIP_DESCRIPTIONS_BY_NODE_TYPE = {

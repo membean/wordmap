@@ -2,7 +2,7 @@ import RootNode from './rootnode';
 import SynsetNode from './synsetnode';
 import Link from './link';
 import LabelNode from './labelnode';
-/*global createjs:true*/
+import createjs from 'createjs-module';
 
 export default class Graph {
   /**

@@ -1,6 +1,6 @@
 import Node from './node';
 import ToolTip from './tooltip';
-/*global createjs:true*/
+import createjs from 'createjs-module';
 
 export default class SynsetNode extends Node {
   /**
