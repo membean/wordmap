@@ -11,27 +11,15 @@ The Wordmap is a tool that enhances vocabulary learning through visual organizat
 # Install the package using yarn.
  
 ```
-yarn add 'wordmap@https://github.com/membean/wordmap.git#v0.0.7'
+yarn add 'wordmap@https://github.com/membean/wordmap.git#v0.0.8'
  ```
 # Install the package using npm
 
 ```
-npm install 'wordmap@https://github.com/membean/wordmap.git#v0.0.7'
+npm install 'wordmap@https://github.com/membean/wordmap.git#v0.0.8'
 ```
 
 >  Note: you must have access to Wordmap repository in order to install it as node package / module.
-
-# Prerequesites
-
-In order to use the Wordmap module, it's necessary to have `create.js` added in your application.
-
-You can add below script to your `index.html` to make it available.
-
-```
-
-<script src="https://cdn0.membean.com/public/vendor/javascripts/createjs-2015.11.26.min.js"></script>
-
-```
 
 # Usage of WordMap
 
@@ -79,7 +67,7 @@ import Wordmap from 'wordmap';
     new WordMap(
       {
         containerEle: containerRef.current,
-        url: 'url-to-constellation-json-data'
+        url: WORD_URL // url to be set from env.
       }
     )
 
@@ -146,7 +134,7 @@ window.addEventListener('load', () => {
   
   new window.Wordmap({
     containerEl: containerRef,
-    url: 'url-to-constellation-json-data'
+    url: WORD_URL // to be loaded from env or the url to wordmap.
   })
   
 })
@@ -238,3 +226,14 @@ new Wordmap({
 | data | Object  | Required | Json data to render the constellation graph, `[required]` In case of interactive mode. |
 | fetchCallBack | function | Required | A callback fn to fetch the constellation data based on provided word, on invoke it has two params, 1. word, 2. cb to render graph with updated data `[Required]` in case of interactive mode. |
 | props | Object  | Optional | Props for constellation component, default is {} e.g. `fullscreen: true/false` |
+
+
+# Scripts:
+
+To prepare the types of module just execute the below commands from root.
+
+`yarn tsc`
+
+To prepare the compiled minified version as single file so browser can easily use it.
+
+`yarn webpack`

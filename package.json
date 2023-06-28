@@ -9,8 +9,6 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "bundle": "browserify ./src/index.js -p esmify > ./bundle/bundle.js",
-    "bundle:babel": "npx babel ./src --out-file ./bundle/compiled.js",
     "build": "webpack",
     "types": "tsc --project tsconfig.json"
   },
