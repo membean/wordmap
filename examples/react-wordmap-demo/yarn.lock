@@ -3901,6 +3901,11 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+createjs-module@^0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/createjs-module/-/createjs-module-0.8.3.tgz#328ffa2e14741d7303d3d08bd97ce1823365741f"
+  integrity sha512-Zw/U1UuxiMMXQr/tB1QHTYZf+oB2GzRqFgNEOypFqH4D4R38nCjXimwSyTgQb38eHgjTQLmtrx/oERMjPyePAw==
+
 createjs@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/createjs/-/createjs-1.0.1.tgz#163e8ba35814f62c8033cd9628033f190dfdaa9f"
@@ -10380,11 +10385,13 @@ word-wrap@^1.2.3, word-wrap@~1.2.3:
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
 
-"wordmap@file:../..":
+"wordmap@https://github.com/membean/wordmap.git#v0.0.8":
   version "1.0.0"
+  resolved "https://github.com/membean/wordmap.git#c2e84700f4003bbf8fc24095aa1236f60b7c44c2"
   dependencies:
     browserify "^17.0.0"
     createjs "^1.0.1"
+    createjs-module "^0.8.3"
     esmify "^2.1.1"
 
 workbox-background-sync@6.5.4:
