@@ -4,7 +4,7 @@ import WordMap from 'wordmap';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
+import { WORD_URL } from '../constant'
 import { snippet } from './code';
 
 export const WordConstellation = () => {
@@ -13,7 +13,7 @@ export const WordConstellation = () => {
   useEffect(() => {
     new WordMap({
       containerEl: containerRef.current,
-      url: 'url-to-constellation-json-data'
+      url: WORD_URL
     })
 
     return () => {

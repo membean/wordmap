@@ -1,4 +1,4 @@
-/*global createjs:true*/
+import createjs from 'createjs-module';
 
 export default class ToolTip {
   constructor(x, y, stage, toolTipText) {

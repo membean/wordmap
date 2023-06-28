@@ -844,6 +844,16 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+createjs-module@^0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/createjs-module/-/createjs-module-0.8.3.tgz#328ffa2e14741d7303d3d08bd97ce1823365741f"
+  integrity sha512-Zw/U1UuxiMMXQr/tB1QHTYZf+oB2GzRqFgNEOypFqH4D4R38nCjXimwSyTgQb38eHgjTQLmtrx/oERMjPyePAw==
+
+createjs@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/createjs/-/createjs-1.0.1.tgz#163e8ba35814f62c8033cd9628033f190dfdaa9f"
+  integrity sha512-VutFczgM8GNzOSiFKlYEwFRgZRMQkZt34ooaewKi7lzxuQ7JSsUs/Y1qb95G4CKOnHA/C/yghCJ6wfivuKOawA==
+
 crypto-browserify@^3.0.0:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/crypto-browserify/-/crypto-browserify-3.12.0.tgz#396cf9f3137f03e4b8e532c58f698254e00f80ec"
@@ -2231,6 +2241,8 @@ which-typed-array@^1.1.2:
   version "1.0.0"
   dependencies:
     browserify "^17.0.0"
+    createjs "^1.0.1"
+    createjs-module "^0.8.3"
     esmify "^2.1.1"
 
 wrappy@1:
