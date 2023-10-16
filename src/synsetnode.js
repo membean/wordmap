@@ -15,8 +15,9 @@ export default class SynsetNode extends Node {
    * @param {Object} stage - A reference to the Stage object that Nodes are drawn on
    * @param {String} type - either 'label' or 'ss' (synset) to signify what type of node this is
    * @param {String} mode - used to determine the constellaton mode, defaults to 'word' which is used for WordPage
+   * @param {String} operation - used to determine operation like read or edit use in case of mode as question to show the tooltip on synsetnode.
    */
-  constructor(id, defn, partOfSpeech, graph, stage, type, l, mode) {
+  constructor(id, defn, partOfSpeech, graph, stage, type, l, mode, operation) {
     super(id, type, graph);
     this.l = l;
     this.defn = defn;
@@ -25,6 +26,7 @@ export default class SynsetNode extends Node {
     this.color = this._color();
     this.graph = graph;
     this.mode = mode;
+    this.operation = operation;
     this._stage = stage;
     this._buildBubble();
     this._setupHandlers();
@@ -60,7 +62,11 @@ export default class SynsetNode extends Node {
   // Sets up the Node event handlers by binding them to the current SynsetNode scope. We do this so that 'this' references
   // the target SynsetNode during events
   _setupHandlers() {
-    if (this.mode === 'word') {
+    console.log('checking hover', this.mode, this.operation)
+    if (this.mode === 'word' ||
+      (this.mode === 'question'
+        && this.operation === 'edit')
+    ) {
       this.b.cursor = 'pointer';
       // necessary so the event handlers have access to the class context
       this._handleRollout = this._handleRollout.bind(this);

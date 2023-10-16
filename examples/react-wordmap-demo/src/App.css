@@ -58,3 +58,10 @@ button {
   box-shadow: none;
   border: 1px solid #61dafb;
 }
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}

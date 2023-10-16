@@ -132,7 +132,8 @@ export default class Wordmap {
       this.mode,
       this.animate,
       this.fetchCallback,
-      this
+      this,
+      this.props.operation
     );
     // the draw call is what actually puts everything in place and displays the Constellation for the given word
     this.currentGraph.draw(this.constellationJson);

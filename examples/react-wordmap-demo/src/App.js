@@ -18,11 +18,9 @@ function App() {
       </header>
       <div>
         <div>
-          <section>
             {!isQuestion ?
               <WordConstellation /> : <QuestionConstellation />
             }
-          </section>
         </div>
       </div>
     </div>
