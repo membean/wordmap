@@ -11,14 +11,16 @@ export default class SynsetNode extends Node {
      * @param {Object} stage - A reference to the Stage object that Nodes are drawn on
      * @param {String} type - either 'label' or 'ss' (synset) to signify what type of node this is
      * @param {String} mode - used to determine the constellaton mode, defaults to 'word' which is used for WordPage
+     * @param {String} operation - used to determine operation like read or edit use in case of mode as question to show the tooltip on synsetnode.
      */
-    constructor(id: string, defn: string, partOfSpeech: string, graph: any, stage: any, type: string, l: any, mode: string);
+    constructor(id: string, defn: string, partOfSpeech: string, graph: any, stage: any, type: string, l: any, mode: string, operation: string);
     l: any;
     defn: string;
     partOfSpeech: string;
     bubbleRadius: number;
     color: string;
     mode: string;
+    operation: string;
     _stage: any;
     distance_from_center(): any;
     setupAnimation(): any;
