@@ -62,7 +62,6 @@ export default class SynsetNode extends Node {
   // Sets up the Node event handlers by binding them to the current SynsetNode scope. We do this so that 'this' references
   // the target SynsetNode during events
   _setupHandlers() {
-    console.log('checking hover', this.mode, this.operation)
     if (this.mode === 'word' ||
       (this.mode === 'question'
         && this.operation === 'edit')
