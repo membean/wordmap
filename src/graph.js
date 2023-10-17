@@ -12,11 +12,12 @@ export default class Graph {
    * @param {String} wf - the wordform or Word for the current constellation
    * @param {Object} stage - the createjs.Stage instance created during the Wordmap _buildStage() call
    * @param {String} mode - used to determine the constellaton mode, defaults to 'word' which is used for WordPage
+   * @param {String} operation - used to determine the constellaton operation in case of question mode, defaults to 'view' which is used in questions page and 'edit' to shows tooltip on synset nodes
    * @param {Boolean} animate - Used to turn animation on/off. Default is on
    * @param {Function} fetchConstellationData - The method for fetching constellation data used in the Constellation component. Used as a CB in the classes
    * @param {Object} wordmap - The instance of the Wordmap class that instantiates this graph
    */
-  constructor(wordForm, stage, mode, animate, fetchConstellationData, wordmap) {
+  constructor(wordForm, stage, mode, animate, fetchConstellationData, wordmap, operation) {
     this.ANIMATION_DURATION = 750;
     this.CHANGE_GRAPH_ANIMATION_DURATION = this.ANIMATION_DURATION * 1.5;
     this.CURRENT = null;
@@ -24,6 +25,7 @@ export default class Graph {
     this.wordForm = wordForm;
     this.stage = stage;
     this.mode = mode != null ? mode : 'word';
+    this.operation = operation != null ? operation : 'view';
     this.animate = animate != null ? animate : true;
     this.nodes = [];
     this.links = [];
@@ -93,7 +95,8 @@ export default class Graph {
           this.stage,
           type,
           jsonNode.l,
-          this.mode
+          this.mode,
+          this.operation
         );
       } else {
         node = new LabelNode(

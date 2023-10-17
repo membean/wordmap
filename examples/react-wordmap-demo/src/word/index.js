@@ -24,13 +24,13 @@ export const WordConstellation = () => {
 
 
   return (
-    <>
+    <section>
       <div className="code-snippet">
         <SyntaxHighlighter language="javascript" style={dark}>
           {snippet}
         </SyntaxHighlighter>
       </div>
       <div className="wordmap-container" ref={containerRef}></div>
-    </>
+    </section>
   )
 }
