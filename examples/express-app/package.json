@@ -11,6 +11,6 @@
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^2.0.22",
-    "wordmap": "file:../../../wordmap"
+    "wordmap": "file:../.."
   }
 }
